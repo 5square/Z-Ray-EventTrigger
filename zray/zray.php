@@ -1,6 +1,6 @@
 <?php
 
-namespace MonitoringTrigger;
+namespace EventTrigger;
 
 $messageClass = 'Custom Event triggered by Z-Ray Plugin';
 $message = <<<MESSAGE
