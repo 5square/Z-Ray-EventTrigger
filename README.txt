@@ -1,4 +1,4 @@
-Z-Ray-MonitoringTrigger
+Z-Ray-EventTrigger
 =======================
 
 Z-Ray Plugin which is triggering a custom event in Zend Server monitoring in every request.
