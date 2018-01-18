@@ -11,7 +11,7 @@ get a Code Trace for this specific request. Therefore an event rule for "Custom 
 application or as a Global Rule), which captures a Code Trace when observing a Custom Event with "Notice" level.
 MESSAGE;
 
-$zre = new \ZRayExtension('MonitoringTrigger');
+$zre = new \ZRayExtension('EventTrigger');
 $zre->setMetadata(array(
     'logo' => __DIR__ . DIRECTORY_SEPARATOR . 'logo.png'
 ));
@@ -37,7 +37,7 @@ $shutdown = new Shutdown($messageClass, $message);
 register_shutdown_function(array($shutdown, 'trigger'));
 
 $zre->traceFunction(
-    'MonitoringTrigger\Shutdown::trigger',
+    'EventTrigger\Shutdown::trigger',
     function() {},
     function() {}
 );
