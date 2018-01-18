@@ -1,6 +1,6 @@
 {
-  "name" : "MonitoringTrigger",
-  "display_name" : "MonitoringTrigger",
+  "name" : "EventTrigger",
+  "display_name" : "EventTrigger",
   "version" : "0.1.0",
   "type": ["zray"],
   "logo": "logo.gif",
