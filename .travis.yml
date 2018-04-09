@@ -28,10 +28,10 @@ after_success:
               "  IdentityFile $SSH_FILE" \
               "  LogLevel ERROR" >> ~/.ssh/config
 
-      ls -la $SSH_FILE
-      cat $SSH_FILE
-      cat  ~/.ssh/config
-      
+       ls -la $SSH_FILE
+       cat $SSH_FILE
+       cat  ~/.ssh/config
+
 deploy:
   provider: releases
   api_key:
