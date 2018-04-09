@@ -1,7 +1,7 @@
 {
   "name" : "EventTrigger",
   "display_name" : "EventTrigger",
-  "version" : "1.0.1",
+  "version" : "1.0.3",
   "type": ["zray"],
   "logo": "logo.gif",
   "eula": "LICENSE.txt",
