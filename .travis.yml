@@ -3,6 +3,11 @@ php:
   - 7.1
 script:
   - zip -r Z-Ray-EventTrigger.zip deployment.json LICENSE logo.png README.md zray/
+after_success:
+  - |
+       $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" \
+                             --iv "$encrypted_XXXXXXXXXXXX_iv" \
+                             --path-encrypted-key ".travis/github_deploy_key.enc"
 deploy:
   provider: releases
   api_key:
@@ -12,3 +17,7 @@ deploy:
   on:
     repo: 5square/Z-Ray-EventTrigger
     tags: true
+
+env:
+  global:
+    - secure: "oqOOTC+hsZYuEtyRdO/wpuxqzYCk166TSXM/31XgVXUEqP3+K9hC2ZfTZZo9n1DvY7NwUI4hfH22br4+F8EhSrOtBnF3r0mmtJiAcUnhNU/g48FHVPzsAP2t7Fq4Cbk49MgnjzIK1IIDrADHUtK6tCxtaHOlZZuxkgNgtvVBFvAAj41yexsISVrR5Xg4qo45OHNphf79Ub5RPRPMJmCo6v1mtyQhn/Q4T5B7NbJMjhMKApqA0PgzcTTSKvCkmj8FKQbhFwgh7nktVfJlKe6T9S49v7XJmBgeD3qKCC8cq3mtCXkS2BD1v6uLjYFx8Ef+o5xq0N60yiJrNVajBBaJE/bT3Xeh64eGx66Bcnp4MnlJQG3FFaImFWfkxvS3rQgpEYxUBqjzawCH6JU2I1KfsD3UOvZ0pNff4TC92NSDCRrqmYEMkDNSEyjz7aRQBVsaYtcFWsiIaJARtFeNGVTMUifHlH+I/9/H+dWW7l3gdKmMADlmNGRRc+6VQedzwB1kfPWJ/zEUueWrdQt8O+0NX7kl9OQQgt8NKSQywXatFeTyGfsgcqa9B/NITXu5s2PyYEu0l43bWvys/o64Z4c5I5OsZB6bTXkZ2vOLxHQDp1U69kbOmRyxlBFj0lRO8p/3KKuF70xd9Wn7TL07QTXunGA4x9j+b+gwIoqYhf1NkEc="
