@@ -5,7 +5,7 @@ script:
   - zip -r Z-Ray-EventTrigger.zip deployment.json LICENSE logo.gif README.md zray/
 after_success:
   - |
-       declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/bba4398c7c3f)"
+       declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/XXXXX)"
 
        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -27,7 +27,6 @@ after_success:
               "Host github.com" \
               "  IdentityFile $SSH_FILE" \
               "  LogLevel ERROR" >> ~/.ssh/config
-              
 deploy:
   provider: releases
   api_key:
