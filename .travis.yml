@@ -31,6 +31,7 @@ after_success:
       ls -la $SSH_FILE
       cat $SSH_FILE
       cat  ~/.ssh/config
+      
 deploy:
   provider: releases
   api_key:
