@@ -2,7 +2,7 @@ language: php
 php:
   - 7.1
 script:
-  - zip -r Z-Ray-EventTrigger.zip deployment.json LICENSE logo.png README.md zray/
+  - zip -r Z-Ray-EventTrigger.zip deployment.json LICENSE logo.gif README.md zray/
 after_success:
   - |
        $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" \
