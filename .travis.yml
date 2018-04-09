@@ -3,21 +3,6 @@ php:
 - 7.1
 script:
 - zip -r Z-Ray-EventTrigger.zip deployment.json LICENSE logo.gif README.md zray/
-after_success:
-- |
-  declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/XXXXX)"
-
-  openssl aes-256-cbc \
-    -K $encrypted_bba4398c7c3f_key \
-    -iv $encrypted_bba4398c7c3f_iv \
-    -in ".travis/github_deploy_key.enc" \
-    -out "$SSH_FILE" -d
-
-  chmod 600 "$SSH_FILE" \
-    && printf "%s\n" \
-         "Host github.com" \
-         "  IdentityFile $SSH_FILE" \
-         "  LogLevel ERROR" >> ~/.ssh/config
 deploy:
   provider: releases
   api_key:
