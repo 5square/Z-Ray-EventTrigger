@@ -1,7 +1,5 @@
 <?php
 
-namespace EventTrigger;
-
 $messageClass = 'Custom Event triggered by Z-Ray Plugin';
 $message = <<<MESSAGE
 This event is actually not an application error, but this notice has been triggered by a specific Z-Ray Plugin.
@@ -11,33 +9,6 @@ get a Code Trace for this specific request. Therefore an event rule for "Custom 
 application or as a Global Rule), which captures a Code Trace when observing a Custom Event with "Notice" level.
 MESSAGE;
 
-$zre = new \ZRayExtension('EventTrigger');
-$zre->setMetadata(array(
-    'logo' => __DIR__ . DIRECTORY_SEPARATOR . 'logo.png'
-));
-
-$zre->setEnabled();
-
-class Shutdown  {
-    private $message;
-    private $messageClass;
-    
-    public function __construct($messageClass, $message) {
-        $this->messageClass = $messageClass;        
-        $this->message = $message;
-    }
-    
-    public function trigger() {
-        zend_monitor_custom_event($this->messageClass, $this->message, null, ZEND_MONITOR_EVENT_SEVERITY_INFO);
-    }
-};
-
-$shutdown = new Shutdown($messageClass, $message);
-
-register_shutdown_function(array($shutdown, 'trigger'));
-
-$zre->traceFunction(
-    'EventTrigger\Shutdown::trigger',
-    function() {},
-    function() {}
-);
+register_shutdown_function(function() use ($messageClass, $message) {
+    zend_monitor_custom_event($messageClass, $message, null, ZEND_MONITOR_EVENT_SEVERITY_INFO);
+});
