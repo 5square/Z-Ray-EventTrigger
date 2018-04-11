@@ -1,11 +1,11 @@
 {
   "name" : "EventTrigger",
   "display_name" : "EventTrigger",
-  "version" : "1.0.3",
+  "version" : "1.0.4",
   "type": ["zray"],
   "logo": "logo.gif",
-  "eula": "LICENSE.txt",
-  "readme": "README.txt",
+  "eula": "LICENSE",
+  "readme": "README.md",
   "dependencies": {
     "plugin": {
         "min": "1.0.0"
